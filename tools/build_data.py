@@ -8,6 +8,7 @@ Nguồn (tools/sources):
   chukyu_vocab.json       中級 1–5: từ ghép trong slide Kanji JPD316, cách đọc kiểm bằng JMdict + nghĩa ở vocab_chukyu_vi.tsv
 Chạy: python tools/build_data.py"""
 import json, os, re
+from collections import Counter
 
 T = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(T, 'sources')
@@ -67,6 +68,16 @@ for ch in N5:
     ex = NUM_EX.get(ch) or [(w['k'], w['h']) for w in S if ch in w['k']][:3]
     add(dict(id='k:' + ch, d='S', l=first.get(ch, 0), t='k', jp=ch, hv=hv, vi=vi, on=on, kun=kun,
              ex=[list(e) for e in ex], sup=ch not in first))
+# Kanji trường dạy theo slide FLM (JPD133: bài 8–11), ngoài bộ N5
+for l, chars in load('kanji_shokyu_flm.json').items():
+    if l.startswith('_'):
+        continue
+    for ch in chars:
+        hv, vi, on, kun = kinfo(ch)
+        ex = [[w['k'], w['h']] for w in S if ch in w['k']][:3]
+        if ch == '起':  # không có trong bộ dữ liệu KANJIDIC rút gọn
+            on, kun, ex = 'キ', 'お.きる、お.こす', [['起きます', 'おきます'], ['起床', 'きしょう']]
+        add(dict(id='k:' + ch, d='S', l=int(l), t='k', jp=ch, hv=hv, vi=vi, on=on, kun=kun, ex=ex, src='FLM JPD133'))
 
 # ---------- 初中級 (sách vàng) ----------
 VI = tsv('vocab_shochukyu_vi.tsv')
@@ -93,6 +104,25 @@ for w in load('chukyu_vocab.json'):
         add(dict(id=wid(w['k'], w['h']), d='C', l=w['l'], t='w', jp=w['k'], kana=w['h'], vi=CV[w['k']][0]))
 flm_kanji('JPD316', 'C')
 
+# ---------- Chỉ viết kanji khi đã học chữ đó ----------
+# Kanji coi là "đã học" tại (sách, bài) = mọi chữ Kanji của các bài trước + bài hiện tại (theo thứ tự đỏ → vàng → xanh),
+# cộng 12 chữ số N5 bổ sung. Từ có chữ chưa học (hoặc không có trong chương trình) -> viết toàn bộ bằng kana
+# (từ ngoại lai vốn đã là katakana). Cách viết kanji gốc giữ ở trường 'full'.
+RANK = {'S': 0, 'SC': 1, 'C': 2}
+IS_K = lambda c: '一' <= c <= '鿿'
+kpos = {i['jp']: (RANK[i['d']], i['l']) for i in items if i['t'] == 'k'}
+conv, nokana = Counter(), []
+for it in items:
+    if it['t'] != 'w' or not any(IS_K(c) for c in it['jp']):
+        continue
+    here = (RANK[it['d']], it['l'])
+    if all(c in kpos and kpos[c] <= here for c in it['jp'] if IS_K(c)):
+        continue
+    if not it['kana']:
+        nokana.append(it['jp']); continue
+    it['full'] = it['jp']; it['jp'] = it['kana']; it['kana'] = ''
+    conv[it['d']] += 1
+
 DECKS = {'S': '初級 (sách đỏ)', 'SC': '初中級 (sách vàng)', 'C': '中級 (sách xanh)'}
 os.makedirs(os.path.join(ROOT, 'web'), exist_ok=True)
 with open(os.path.join(ROOT, 'web', 'data.js'), 'w', encoding='utf-8') as f:
@@ -101,7 +131,7 @@ with open(os.path.join(ROOT, 'web', 'data.js'), 'w', encoding='utf-8') as f:
 os.makedirs(os.path.join(T, 'build'), exist_ok=True)
 json.dump(items, open(os.path.join(T, 'build', 'items.json'), 'w', encoding='utf-8'), ensure_ascii=False)
 
-from collections import Counter
+print('Từ đổi về kana (có kanji chưa học):', dict(conv), '| thiếu cách đọc, giữ kanji:', nokana)
 print('items', len(items), Counter((i['d'], i['t']) for i in items))
 print('N5 kanji bổ sung:', ''.join(i['jp'] for i in items if i.get('sup')))
 print('kanji thiếu nghĩa:', ''.join(i['jp'] for i in items if i['t'] == 'k' and not i['vi']))

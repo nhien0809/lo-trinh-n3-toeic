@@ -46,8 +46,8 @@
 
 ### Thứ 5 03/12/2026  ·  ~180 phút
 - [ ] 🇯🇵 Ôn tập SRS (web ôn từ): làm hết thẻ đến hạn _(15′)_ [🔗](on-tu.html#/review?task=2026-12-03%230)
-- [ ] 🇯🇵 Ôn lại 初級 bài 8: 80 từ + 9 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=8&task=2026-12-03%231)
-- [ ] 🇯🇵 Ôn lại 初級 bài 9: 58 từ + 1 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=9&task=2026-12-03%232)
+- [ ] 🇯🇵 Ôn lại 初級 bài 8: 80 từ + 17 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=8&task=2026-12-03%231)
+- [ ] 🇯🇵 Ôn lại 初級 bài 9: 58 từ + 9 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=9&task=2026-12-03%232)
 - [ ] 🇯🇵 Ôn ngữ pháp N5 (file 01): #40 Vては いけません; #41 Vて、Vて、…; #42 Vてから; #43 Thể ない (cách chia); #44 Vないで ください; #45 Vなければ なりません; #46 Vなくても いいです; #47 Thể từ điển + ことが できます; #48 しゅみは Vることです; #49 Vる／Nの まえに; #50 Vた ことが あります; #51 Vたり、Vたり します; #52 Thể thông thường (普通形) — che nghĩa, tự nói nghĩa + đặt 1 câu _(30′)_
 - [ ] 🇯🇵 NHK World 'Easy Japanese' 1 bài (nghe 2 lần, nhại theo) _(15′)_
 - [ ] 🇯🇵 Đọc 1 truyện Tadoku level 0–1 (tadoku.org, miễn phí) _(15′)_
@@ -57,8 +57,8 @@
 
 ### Thứ 6 04/12/2026  ·  ~180 phút
 - [ ] 🇯🇵 Ôn tập SRS (web ôn từ): làm hết thẻ đến hạn _(15′)_ [🔗](on-tu.html#/review?task=2026-12-04%230)
-- [ ] 🇯🇵 Ôn lại 初級 bài 10: 66 từ + 5 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=10&task=2026-12-04%231)
-- [ ] 🇯🇵 Ôn lại 初級 bài 11: 48 từ — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=11&task=2026-12-04%232)
+- [ ] 🇯🇵 Ôn lại 初級 bài 10: 66 từ + 8 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=10&task=2026-12-04%231)
+- [ ] 🇯🇵 Ôn lại 初級 bài 11: 48 từ + 10 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=11&task=2026-12-04%232)
 - [ ] 🇯🇵 Ôn ngữ pháp N5 (file 01): #53 ～と 思います; #54 ～と 言いました; #55 Mệnh đề bổ nghĩa danh từ; #56 ～とき; #57 ～でしょう; #58 Adj + なります; #59 Vた あとで; #60 ～が、～; #61 Nに します; #62 ～だけ; #63 ～しか～ない; #64 Từ nghi vấn + か／も; #65 ～ね／～よ — che nghĩa, tự nói nghĩa + đặt 1 câu _(30′)_
 - [ ] 🇯🇵 NHK World 'Easy Japanese' 1 bài (nghe 2 lần, nhại theo) _(15′)_
 - [ ] 🇯🇵 Đọc 1 truyện Tadoku level 0–1 (tadoku.org, miễn phí) _(15′)_
