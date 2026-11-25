@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lộ trình N3 + TOEIC</title>
+<link rel="stylesheet" href="web/ui.css">
+<style>
+.head{padding:18px 20px;margin-bottom:14px}
+.head h1{margin:0 0 4px;font-size:21px;letter-spacing:-.02em}
+.head .bar{margin:12px 0 8px;height:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.row .muted{font-size:13.5px}
+.ctl{position:sticky;top:57px;z-index:5;padding:10px 0;display:flex;gap:8px;flex-wrap:wrap;background:linear-gradient(var(--bg) 70%,transparent)}
+.due{display:flex;align-items:center;gap:12px;padding:14px 18px;margin-bottom:14px;text-decoration:none;color:var(--ink)}
+.due b{font-size:22px;color:var(--accent);font-variant-numeric:tabular-nums}
+.due span{flex:1}
+.week{margin:30px 0 10px;font-weight:800;font-size:16px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.week small{font-weight:500;color:var(--mute);font-size:13px}
+.day{padding:12px 16px;margin:10px 0;transition:border-color .2s}
+.day.today{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft),var(--shadow)}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:8px;cursor:pointer;user-select:none}
+.dh b{font-size:15px}
+.dh .tday{color:var(--accent);margin-left:6px;font-size:12px}
+.dh .cnt{color:var(--mute);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;gap:8px;align-items:center}
+.ring{width:22px;height:22px}
+.day.done .dh b{color:var(--ok)}
+.note{font-size:13px;color:var(--mute);font-style:italic;margin-top:2px}
+ul{list-style:none;padding:0;margin:8px 0 0}
+li{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line);align-items:flex-start}
+li input{margin-top:3px;flex:none;width:18px;height:18px;accent-color:var(--ok);cursor:pointer}
+li label{flex:1;cursor:pointer}
+li.chk label{color:var(--mute);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--mute) 50%,transparent)}
+.tag{flex:none;font-size:10.5px;font-weight:800;border-radius:6px;padding:2px 6px;margin-top:2px;letter-spacing:.03em}
+.JP{background:color-mix(in srgb,var(--jp) 14%,transparent);color:var(--jp)}
+.EN{background:color-mix(in srgb,var(--en) 14%,transparent);color:var(--en)}
+.ADMIN{background:color-mix(in srgb,var(--ad) 14%,transparent);color:var(--ad)}
+.min{color:var(--mute);font-size:12px;white-space:nowrap;margin-top:2px}
+.go{flex:none;font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:99px;background:var(--accent);color:var(--accent-ink);text-decoration:none;margin-top:-1px;white-space:nowrap}
+.go:hover{filter:brightness(1.06)}
+.collapsed ul,.collapsed .score{display:none}
+.score{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:8px;font-size:13px}
+.score input{width:92px;padding:5px 8px}
+#scores{margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+td,th{border-bottom:1px solid var(--line);padding:7px 10px;text-align:left}
+@media (max-width:560px){.ctl{top:96px}.min{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="brand" href="tracker.html"><span class="dot"></span>Lộ trình N3 + TOEIC 800</a>
+  <nav class="nav"><a href="tracker.html" class="on">Lộ trình</a><a href="on-tu.html#/">Ôn từ</a><a href="on-tu.html#/review">Ôn tập SRS</a></nav>
+</div></div>
+<main class="wrap">
+  <section class="card head">
+    <h1>4 tháng · できる日本語 → N3 &amp; TOEIC 800</h1>
+    <div class="muted" style="font-size:13.5px">Sách đỏ 初級 → sách vàng 初中級 → sách xanh 中級. Task có nút <b style="color:var(--accent)">Học ▸</b> mở trang ôn từ đúng đoạn cần học; làm trắc nghiệm ≥80% sẽ tự tick.</div>
+    <div class="bar"><i id="pb"></i></div>
+    <div class="row"><span class="muted" id="st"></span><span class="muted" id="streak"></span></div>
+  </section>
+  <a class="card due" href="on-tu.html#/review" id="dueBox" hidden><b id="dueN">0</b><span>thẻ từ vựng đang đến hạn ôn</span><span class="go">Ôn ngay ▸</span></a>
+  <div class="ctl">
+    <button id="goToday" class="btn-p">Đến hôm nay</button>
+    <select id="wk" aria-label="Chọn tuần"></select>
+    <button id="toggle">Thu gọn ngày đã xong</button>
+    <button id="scoresBtn">Bảng điểm thi thử</button>
+  </div>
+  <div id="scores" class="card" hidden></div>
+  <div id="m"></div>
+</main>
+<script>
+const DATA=/*__DATA__*/[];
+const KEY="lotrinh-n3-toeic-v1", SKEY="dekiru-srs-v1";
+let S={done:{},scores:{}};
+function load(){S={done:{},scores:{}};try{S=Object.assign(S,JSON.parse(localStorage.getItem(KEY)||"{}"))}catch(e){}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+load();
+const today=new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const m=document.getElementById("m"),wk=document.getElementById("wk");
+let hideDone=false;
+const fmt=d=>{const[y,mo,da]=d.split("-");return `${da}/${mo}`};
+const ring=(n,t)=>{const r=9,c=2*Math.PI*r,p=t?n/t:0;return `<svg class="ring" viewBox="0 0 22 22"><circle cx="11" cy="11" r="${r}" fill="none" stroke="var(--line)" stroke-width="3"/><circle cx="11" cy="11" r="${r}" fill="none" stroke="${p>=1?"var(--ok)":"var(--accent)"}" stroke-width="3" stroke-linecap="round" stroke-dasharray="${c*p} ${c}" transform="rotate(-90 11 11)"/></svg>`};
+function dayHTML(r){
+  const keys=r.tasks.map((_,i)=>r.date+"#"+i), nd=keys.filter(k=>S.done[k]).length, all=nd===keys.length;
+  return {all,html:`<div class="dh"><b>${r.thu} · ${fmt(r.date)}${r.date===today?`<span class="pill tday">HÔM NAY</span>`:""}</b><span class="cnt">${nd}/${keys.length} · ~${r.total}′ ${ring(nd,keys.length)}</span></div>`+
+    (r.note?`<div class="note">${r.note}</div>`:"")+
+    `<ul>${r.tasks.map((t,i)=>`<li class="${S.done[keys[i]]?"chk":""}"><input type="checkbox" id="${keys[i]}" ${S.done[keys[i]]?"checked":""}>`+
+    `<span class="tag ${t.cat}">${t.cat==="ADMIN"?"!":t.cat}</span><label for="${keys[i]}">${t.text}</label>`+
+    (t.link?`<a class="go" href="${t.link}">${/review/.test(t.link)?"Ôn ▸":"Học ▸"}</a>`:"")+`<span class="min">${t.min}′</span></li>`).join("")}</ul>`+
+    (r.tasks.some(t=>/FULL TEST|half test|Thi thử JLPT/.test(t.text))?
+     `<div class="score">Điểm: <input placeholder="TOEIC L" data-s="${r.date}|L" value="${S.scores[r.date+"|L"]||""}"><input placeholder="TOEIC R" data-s="${r.date}|R" value="${S.scores[r.date+"|R"]||""}"><input placeholder="JLPT /180" data-s="${r.date}|J" value="${S.scores[r.date+"|J"]||""}"></div>`:"")};
+}
+function render(){
+  m.innerHTML="";let cw=0;
+  DATA.forEach(r=>{
+    if(r.week!==cw){cw=r.week;const h=document.createElement("div");h.className="week";h.id="w"+cw;
+      h.innerHTML=`Tuần ${cw} <small>${r.phase}</small>`;m.appendChild(h)}
+    const {all,html}=dayHTML(r);
+    const d=document.createElement("section");d.className="card day"+(r.date===today?" today":"")+(all?" done":"")+((hideDone&&all)||(r.date<today&&all)?" collapsed":"");
+    d.id="d"+r.date;d.innerHTML=html;
+    d.querySelector(".dh").onclick=()=>d.classList.toggle("collapsed");
+    m.appendChild(d);
+  });
+  stats();
+}
+function stats(){
+  let tot=0,dn=0;DATA.forEach(r=>r.tasks.forEach((_,i)=>{tot++;if(S.done[r.date+"#"+i])dn++}));
+  document.getElementById("pb").style.width=(dn/tot*100)+"%";
+  const left=DATA.filter(r=>r.date>=today).length;
+  document.getElementById("st").textContent=`${dn}/${tot} task · ${(dn/tot*100).toFixed(1)}% · còn ${left} ngày`;
+  let s=0;for(const r of [...DATA].reverse()){if(r.date>today)continue;const ok=r.tasks.every((_,i)=>S.done[r.date+"#"+i]);if(ok)s++;else if(r.date!==today)break}
+  document.getElementById("streak").textContent=`· 🔥 chuỗi ${s} ngày`;
+  let due=0;try{const c=(JSON.parse(localStorage.getItem(SKEY)||"{}").cards)||{};const now=Date.now();for(const k in c)if(c[k].due<=now)due++}catch(e){}
+  document.getElementById("dueBox").hidden=!due;document.getElementById("dueN").textContent=due;
+}
+m.addEventListener("change",e=>{
+  if(e.target.type==="checkbox"){if(e.target.checked)S.done[e.target.id]=true;else delete S.done[e.target.id];save();
+    const day=e.target.closest(".day"),r=DATA.find(x=>"d"+x.date===day.id),{all,html}=dayHTML(r);
+    day.innerHTML=html;day.classList.toggle("done",all);day.querySelector(".dh").onclick=()=>day.classList.toggle("collapsed");stats()}
+  if(e.target.dataset.s){S.scores[e.target.dataset.s]=e.target.value;save()}
+});
+[...new Set(DATA.map(r=>r.week))].forEach(w=>{const o=document.createElement("option");o.value=w;o.textContent="Tuần "+w;wk.appendChild(o)});
+wk.onchange=()=>document.getElementById("w"+wk.value).scrollIntoView({behavior:"smooth"});
+function goToday(smooth){const el=document.getElementById("d"+today)||document.getElementById("d"+(today<DATA[0].date?DATA[0].date:DATA.at(-1).date));
+  el.classList.remove("collapsed");el.scrollIntoView({behavior:smooth?"smooth":"auto",block:"start"});window.scrollBy(0,-120)}
+document.getElementById("goToday").onclick=()=>goToday(true);
+document.getElementById("toggle").onclick=e=>{hideDone=!hideDone;e.target.textContent=hideDone?"Hiện tất cả":"Thu gọn ngày đã xong";render()};
+document.getElementById("scoresBtn").onclick=()=>{const b=document.getElementById("scores");b.hidden=!b.hidden;if(b.hidden)return;
+  const rows=Object.keys(S.scores).map(k=>k.split("|")[0]).filter((v,i,a)=>a.indexOf(v)===i).sort();
+  b.innerHTML=rows.length?`<table><tr><th>Ngày</th><th>TOEIC L</th><th>TOEIC R</th><th>Tổng</th><th>JLPT</th></tr>${rows.map(d=>{const L=+S.scores[d+"|L"]||0,R=+S.scores[d+"|R"]||0;
+  return `<tr><td>${fmt(d)}</td><td>${L||""}</td><td>${R||""}</td><td>${L+R||""}</td><td>${S.scores[d+"|J"]||""}</td></tr>`}).join("")}</table>`:`<p style="padding:0 14px">Chưa có điểm. Nhập điểm ở các ngày thi thử (thứ 7).</p>`};
+// Quay lại từ trang ôn từ: đọc lại tiến độ (task có thể vừa được tự tick)
+window.addEventListener("pageshow",e=>{if(e.persisted){load();render()}});
+window.addEventListener("storage",e=>{if(e.key===KEY||e.key===SKEY){load();render()}});
+render();
+requestAnimationFrame(()=>goToday(false));
+</script>
+<script src="web/bg.js" defer></script>
+</body>
+</html>

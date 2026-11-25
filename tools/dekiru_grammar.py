@@ -1,0 +1,113 @@
+# -*- coding: utf-8 -*-
+"""Ngữ pháp theo bài Dekiru Nihongo.
+- 初中級 (JPD216 bài 1–7, JPD226 bài 8–15): tên mẫu lấy từ bảng buổi học trên FLM; nghĩa tiếng Việt do mình bổ sung.
+- 中級 (JPD316 bài 1–5): lấy từ slide 文法説明 của trường (tools/sources/grammar_jpd316.json).
+Mỗi mục: (mẫu, nghĩa / cách dùng)."""
+import json, os, re
+
+SHOCHUKYU = {
+    1: [("いらっしゃいます / 参ります", "đi, đến, ở (tôn kính / khiêm nhường)"),
+        ("〜と申します", "tôi tên là ~ (khiêm nhường)"),
+        ("〜ので", "vì ~ (lý do khách quan, lịch sự)"),
+        ("Vるのが〜", "danh từ hóa: việc làm V thì ~ (好き・得意・苦手)"),
+        ("〜のは〜です", "cái mà ~ là ~ (nhấn mạnh)")],
+    2: [("Aそうです", "trông có vẻ (dáng vẻ)"),
+        ("Vてみます", "thử làm"),
+        ("Vてもらえませんか", "nhờ ai đó làm giúp được không?"),
+        ("Vてあります", "đã được làm sẵn (trạng thái)"),
+        ("〜と読みます / 〜と書いてあります", "đọc là ~ / có ghi là ~"),
+        ("どういう意味ですか / 〜という意味です", "nghĩa là gì? / nghĩa là ~")],
+    3: [("Vたら、〜", "nếu / sau khi ~ thì"),
+        ("Vようと思っています", "định làm (thể ý chí)"),
+        ("Vる / Vないつもりです", "có ý định (không) làm"),
+        ("Vるために、〜", "để (mục đích)"),
+        ("〜んですか / 疑問詞〜んですか", "hỏi để biết lý do, hoàn cảnh")],
+    4: [("〜んですが、〜", "mở đầu nhờ vả / hỏi"),
+        ("〜なら、〜", "nếu là ~ thì (đưa lời khuyên)"),
+        ("Vると、Nがあります", "hễ làm V thì có N (chỉ đường)"),
+        ("Nじゃなくて〜 / Vるんじゃなくて〜", "không phải ~ mà là ~")],
+    5: [("Vてしまいました", "lỡ làm (tiếc nuối)"),
+        ("〜かもしれません", "có lẽ"),
+        ("Vたあとで、〜", "sau khi làm V"),
+        ("Vていただけませんか", "nhờ lịch sự"),
+        ("〜て、〜（理由）", "vì ~ nên (thể て chỉ lý do)")],
+    6: [("Vましょうか", "để tôi làm nhé?"),
+        ("〜し、〜し", "vừa ~ lại ~ (liệt kê lý do)"),
+        ("〜そうです（伝聞）", "nghe nói là"),
+        ("Vておきます", "làm sẵn"),
+        ("Vてあります", "đã được làm sẵn")],
+    7: [("特別な尊敬語 (いらっしゃる・召し上がる…)", "động từ tôn kính đặc biệt"),
+        ("おVになります", "tôn kính ngữ"),
+        ("おVします / ごNします", "khiêm nhường ngữ"),
+        ("イAくV / ナAにV", "tính từ bổ nghĩa cho động từ (trạng từ hóa)"),
+        ("Vている間に、〜", "trong lúc đang ~"),
+        ("イAくします / ナAにします", "làm cho ~")],
+    8: [("Vてあげます", "làm cho ai"),
+        ("Vてもらいます / Vてくれます", "được ai làm cho / ai làm cho mình"),
+        ("いただきます / くださいます", "nhận / cho (kính ngữ)"),
+        ("Vていただきます / Vてくださいます", "được (người trên) làm cho")],
+    9: [("Vることになっています（規則）", "theo quy định thì"),
+        ("Vるように / Vないように、〜", "để (không) ~"),
+        ("条件形 (〜ば)", "thể điều kiện"),
+        ("Vる / Vないようにしてください", "hãy cố gắng (không) làm"),
+        ("おVください / ごNください", "xin hãy (tôn kính)"),
+        ("Vそうです（直前の様態）", "sắp sửa, trông như sắp"),
+        ("Vておきます（放置）", "cứ để nguyên"),
+        ("〜（よ）う", "thể ý chí: cùng làm nào"),
+        ("Vてしまいます（完了）", "làm xong hết"),
+        ("Vることになっています（予定）", "dự định là")],
+    10: [("受身 (bị động)", "bị, được (thể bị động)"),
+         ("〜のに、〜", "thế mà"),
+         ("〜みたいです / 〜ようです（様態）", "hình như, có vẻ"),
+         ("Vるところです / Vているところです / Vたところです", "sắp / đang / vừa mới"),
+         ("Vてきます / Vていきます", "làm rồi đến / đi"),
+         ("AそうにV", "làm V với vẻ ~"),
+         ("〜みたいです（比況）", "giống như"),
+         ("受身（無生物主語）", "bị động với chủ ngữ là vật")],
+    11: [("Vるようになります", "trở nên có thể"),
+         ("Vなくなります", "trở nên không còn"),
+         ("Vたばかりです", "vừa mới"),
+         ("Vながら、〜", "vừa ~ vừa"),
+         ("〜と言っていました", "(ai đó) đã nói là"),
+         ("命令形 / 禁止 (Vるな)", "thể mệnh lệnh / cấm chỉ")],
+    12: [("数量＋も〜 / 数量＋しか〜ない", "những ~ (nhiều) / chỉ ~ (ít)"),
+         ("Vたらどうですか", "sao không thử ~ (khuyên)"),
+         ("Vないで、〜", "không làm ~ mà"),
+         ("〜らしいです（伝聞）", "nghe nói, hình như"),
+         ("Vて〜 / Vないで〜（付帯状況）", "làm / không làm A rồi làm B"),
+         ("Vのに / Nに", "để, dùng cho"),
+         ("Vやすいです / Vにくいです", "dễ / khó làm"),
+         ("Vる・Vないようにしています", "cố gắng (không) làm thành thói quen"),
+         ("Vる・Vないことにします", "quyết định (không) làm")],
+    13: [("使役動詞 (thể sai khiến)", "bắt / cho phép làm"),
+         ("Vのを見ました", "đã thấy (ai) làm"),
+         ("Vせてくれます / Vせてもらいます", "được cho phép làm"),
+         ("NばかりVています / Vてばかりいます", "toàn là, chỉ toàn"),
+         ("使役受身 (bị động sai khiến)", "bị bắt làm")],
+    14: [("Nってなんですか / Nというのは〜", "N là gì? / cái gọi là N thì ~"),
+         ("〜と言われています", "người ta nói rằng"),
+         ("NのようなN", "N giống như N"),
+         ("〜かな / Vようかな", "không biết ~ nhỉ / hay là mình làm ~"),
+         ("Nなんかどうですか", "N chẳng hạn thì sao?"),
+         ("イA / ナAがっています", "(người khác) tỏ ra ~"),
+         ("〜からです", "là vì ~")],
+    15: [("〜んだって", "nghe nói là (thân mật)"),
+         ("Vるのはどうですか", "làm ~ thì thế nào?"),
+         ("〜だけじゃなくて、〜も", "không chỉ ~ mà còn"),
+         ("〜と、〜", "hễ ~ thì"),
+         ("Vてきました", "dần dần đã ~ (đến hiện tại)"),
+         ("〜ために、〜（原因）", "vì ~ (nguyên nhân)"),
+         ("Vていきます", "sẽ dần dần ~ (về sau)")],
+}
+
+def chukyu():
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sources', 'grammar_jpd316.json')
+    out = {}
+    for g in json.load(open(p, encoding='utf-8')):
+        if '確認テスト' in g['pattern']:
+            continue
+        pat = re.sub(r'(?<=[぀-ヿ一-鿿]) +(?=[぀-ヿ一-鿿])', '', g['pattern'].replace('　', ' ')).replace('～ ', '～')
+        out.setdefault(g['lesson'], []).append((pat, g['vi'] or 'xem slide FLM'))
+    return out
+
+CHUKYU = chukyu()
