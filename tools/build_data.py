@@ -53,6 +53,15 @@ def kinfo(ch, hv=None):
     on = k.get('on') or d.get('on', []); kun = k.get('kun') or d.get('kun', [])
     return hv, vi, '・'.join(on[:3]), '、'.join(kun[:3])
 
+READ_FIX = {'起': ('キ', 'お.きる、お.こす', [['起きます', 'おきます'], ['起床', 'きしょう']]),
+            '才': ('サイ', '', [['二十才', 'はたち'], ['天才', 'てんさい']]),
+            '京': ('キョウ・ケイ', 'みやこ', [['東京', 'とうきょう'], ['京都', 'きょうと']]),
+            '区': ('ク', '', [['区役所', 'くやくしょ'], ['地区', 'ちく']]),
+            '市': ('シ', 'いち', [['市役所', 'しやくしょ'], ['市場', 'いちば']]),
+            '貝': ('', 'かい', [['貝', 'かい']]),
+            '力': ('リョク・リキ', 'ちから', [['力', 'ちから'], ['協力', 'きょうりょく']]),
+            '門': ('モン', 'かど', [['門', 'もん'], ['専門', 'せんもん']])}
+
 # ---------- 初級 (sách đỏ) ----------
 S = load('shokyu_vocab.json')
 first = {}
@@ -63,21 +72,24 @@ for w in S:
 for i, w in enumerate(S):
     kana = w['h'] or w['k']
     add(dict(id=wid(w['k'], kana), d='S', l=w['l'], t='w', jp=w['k'], kana=kana if kana != w['k'] else '', vi=w['m']))
-for ch in N5:
-    hv, vi, on, kun = kinfo(ch)
-    ex = NUM_EX.get(ch) or [(w['k'], w['h']) for w in S if ch in w['k']][:3]
-    add(dict(id='k:' + ch, d='S', l=first.get(ch, 0), t='k', jp=ch, hv=hv, vi=vi, on=on, kun=kun,
-             ex=[list(e) for e in ex], sup=ch not in first))
-# Kanji trường dạy theo slide FLM (JPD133: bài 8–11), ngoài bộ N5
+# Kanji trường dạy theo slide FLM: JPD113 (bài 1–3), JPD123 (4–7), JPD133 (8–11)
 for l, chars in load('kanji_shokyu_flm.json').items():
     if l.startswith('_'):
         continue
     for ch in chars:
         hv, vi, on, kun = kinfo(ch)
-        ex = [[w['k'], w['h']] for w in S if ch in w['k']][:3]
-        if ch == '起':  # không có trong bộ dữ liệu KANJIDIC rút gọn
-            on, kun, ex = 'キ', 'お.きる、お.こす', [['起きます', 'おきます'], ['起床', 'きしょう']]
-        add(dict(id='k:' + ch, d='S', l=int(l), t='k', jp=ch, hv=hv, vi=vi, on=on, kun=kun, ex=ex, src='FLM JPD133'))
+        ex = NUM_EX.get(ch) or [[w['k'], w['h']] for w in S if ch in w['k']][:3]
+        if ch in READ_FIX:  # chữ không có trong bộ KANJIDIC rút gọn
+            on, kun, ex2 = READ_FIX[ch]
+            ex = ex or ex2
+        src = 'FLM ' + ('JPD113' if int(l) <= 3 else 'JPD123' if int(l) <= 7 else 'JPD133')
+        add(dict(id='k:' + ch, d='S', l=int(l), t='k', jp=ch, hv=hv, vi=vi, on=on, kun=kun, ex=[list(e) for e in ex], src=src))
+# Kanji N5 mà slide trường không dạy -> bổ sung, đặt ở bài đầu tiên chữ đó xuất hiện trong từ vựng
+for ch in N5:
+    hv, vi, on, kun = kinfo(ch)
+    ex = [(w['k'], w['h']) for w in S if ch in w['k']][:3]
+    add(dict(id='k:' + ch, d='S', l=first.get(ch, 0), t='k', jp=ch, hv=hv, vi=vi, on=on, kun=kun,
+             ex=[list(e) for e in ex], sup=True))
 
 # ---------- 初中級 (sách vàng) ----------
 VI = tsv('vocab_shochukyu_vi.tsv')

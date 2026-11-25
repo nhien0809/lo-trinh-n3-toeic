@@ -9,11 +9,10 @@
 
 ## Tuần 1 — GĐ1 · Ôn 初級 1–11 + học nốt bài 12–15 (N5) + nền TOEIC
 
-### Thứ 2 30/11/2026  ·  ~195 phút
+### Thứ 2 30/11/2026  ·  ~180 phút
 - [ ] 🇯🇵 Ôn tập SRS (web ôn từ): làm hết thẻ đến hạn _(15′)_ [🔗](on-tu.html#/review?task=2026-11-30%230)
-- [ ] 🇯🇵 Ôn lại 初級 bài 1: 48 từ + 22 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=1&task=2026-11-30%231)
-- [ ] 🇯🇵 Ôn lại 初級 bài 2: 80 từ + 8 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=2&task=2026-11-30%232)
-- [ ] 🇯🇵 Kanji N5 bổ sung: 12 chữ số đếm chưa có trong sách đỏ (二三四…百千万) — học + trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=0&task=2026-11-30%233)
+- [ ] 🇯🇵 Ôn lại 初級 bài 1: 48 từ + 10 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=1&task=2026-11-30%231)
+- [ ] 🇯🇵 Ôn lại 初級 bài 2: 80 từ + 18 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=2&task=2026-11-30%232)
 - [ ] 🇯🇵 Ôn ngữ pháp N5 (file 01): #1 AはBです / ではありません; #2 ～か; #3 ～も; #4 NのN; #5 これ／それ／あれ／どれ; #6 この／その／あの／どの + N; #7 ここ／そこ／あそこ／どこ; #8 ～から～まで; #9 Vます／ません／ました／ませんでした; #10 Nへ 行きます／来ます／帰ります; #11 Nで (phương tiện, nơi hành động); #12 Nを Vます; #13 Nと — che nghĩa, tự nói nghĩa + đặt 1 câu _(30′)_
 - [ ] 🇯🇵 NHK World 'Easy Japanese' 1 bài (nghe 2 lần, nhại theo) _(15′)_
 - [ ] 🇯🇵 Đọc 1 truyện Tadoku level 0–1 (tadoku.org, miễn phí) _(15′)_
@@ -23,8 +22,8 @@
 
 ### Thứ 3 01/12/2026  ·  ~180 phút
 - [ ] 🇯🇵 Ôn tập SRS (web ôn từ): làm hết thẻ đến hạn _(15′)_ [🔗](on-tu.html#/review?task=2026-12-01%230)
-- [ ] 🇯🇵 Ôn lại 初級 bài 3: 78 từ + 18 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=3&task=2026-12-01%231)
-- [ ] 🇯🇵 Ôn lại 初級 bài 4: 67 từ + 16 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=4&task=2026-12-01%232)
+- [ ] 🇯🇵 Ôn lại 初級 bài 3: 78 từ + 14 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=3&task=2026-12-01%231)
+- [ ] 🇯🇵 Ôn lại 初級 bài 4: 67 từ + 20 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=4&task=2026-12-01%232)
 - [ ] 🇯🇵 Ôn ngữ pháp N5 (file 01): #14 ～や～など; #15 Nに (thời điểm); #16 Nに あげます／もらいます; #17 もう～ました／まだです; #18 Tính từ い / な (hiện tại, phủ định); #19 Tính từ quá khứ; #20 とても／あまり～ない; #21 Nが すき／きらい／じょうず／へた; #22 Nが わかります／あります; #23 ～から (lý do); #24 どうして～か; #25 あります／います; #26 Nの うえ／した／なか／まえ／うしろ／となり — che nghĩa, tự nói nghĩa + đặt 1 câu _(30′)_
 - [ ] 🇯🇵 NHK World 'Easy Japanese' 1 bài (nghe 2 lần, nhại theo) _(15′)_
 - [ ] 🇯🇵 Đọc 1 truyện Tadoku level 0–1 (tadoku.org, miễn phí) _(15′)_
@@ -34,9 +33,9 @@
 
 ### Thứ 4 02/12/2026  ·  ~195 phút
 - [ ] 🇯🇵 Ôn tập SRS (web ôn từ): làm hết thẻ đến hạn _(15′)_ [🔗](on-tu.html#/review?task=2026-12-02%230)
-- [ ] 🇯🇵 Ôn lại 初級 bài 5: 58 từ + 4 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=5&task=2026-12-02%231)
-- [ ] 🇯🇵 Ôn lại 初級 bài 6: 51 từ + 1 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=6&task=2026-12-02%232)
-- [ ] 🇯🇵 Ôn lại 初級 bài 7: 66 từ + 4 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=7&task=2026-12-02%233)
+- [ ] 🇯🇵 Ôn lại 初級 bài 5: 58 từ + 15 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=5&task=2026-12-02%231)
+- [ ] 🇯🇵 Ôn lại 初級 bài 6: 51 từ + 16 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=6&task=2026-12-02%232)
+- [ ] 🇯🇵 Ôn lại 初級 bài 7: 66 từ + 8 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=7&task=2026-12-02%233)
 - [ ] 🇯🇵 Ôn ngữ pháp N5 (file 01): #27 Lượng từ ～つ、～人、～枚、～台、～回; #28 ～ぐらい／～ごろ; #29 AはBより～; #30 AとBと どちらが～; #31 Nの中で 何が いちばん～; #32 Nが ほしい; #33 Vたい; #34 Vに 行く／来る; #35 Vましょう／ませんか／ましょうか; #36 Thể て (cách chia); #37 Vて ください; #38 Vて います; #39 Vても いいです — che nghĩa, tự nói nghĩa + đặt 1 câu _(30′)_
 - [ ] 🇯🇵 NHK World 'Easy Japanese' 1 bài (nghe 2 lần, nhại theo) _(15′)_
 - [ ] 🇯🇵 Đọc 1 truyện Tadoku level 0–1 (tadoku.org, miễn phí) _(15′)_
@@ -47,7 +46,7 @@
 ### Thứ 5 03/12/2026  ·  ~180 phút
 - [ ] 🇯🇵 Ôn tập SRS (web ôn từ): làm hết thẻ đến hạn _(15′)_ [🔗](on-tu.html#/review?task=2026-12-03%230)
 - [ ] 🇯🇵 Ôn lại 初級 bài 8: 80 từ + 17 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=8&task=2026-12-03%231)
-- [ ] 🇯🇵 Ôn lại 初級 bài 9: 58 từ + 9 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=9&task=2026-12-03%232)
+- [ ] 🇯🇵 Ôn lại 初級 bài 9: 58 từ + 10 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=9&task=2026-12-03%232)
 - [ ] 🇯🇵 Ôn ngữ pháp N5 (file 01): #40 Vては いけません; #41 Vて、Vて、…; #42 Vてから; #43 Thể ない (cách chia); #44 Vないで ください; #45 Vなければ なりません; #46 Vなくても いいです; #47 Thể từ điển + ことが できます; #48 しゅみは Vることです; #49 Vる／Nの まえに; #50 Vた ことが あります; #51 Vたり、Vたり します; #52 Thể thông thường (普通形) — che nghĩa, tự nói nghĩa + đặt 1 câu _(30′)_
 - [ ] 🇯🇵 NHK World 'Easy Japanese' 1 bài (nghe 2 lần, nhại theo) _(15′)_
 - [ ] 🇯🇵 Đọc 1 truyện Tadoku level 0–1 (tadoku.org, miễn phí) _(15′)_
@@ -57,7 +56,7 @@
 
 ### Thứ 6 04/12/2026  ·  ~180 phút
 - [ ] 🇯🇵 Ôn tập SRS (web ôn từ): làm hết thẻ đến hạn _(15′)_ [🔗](on-tu.html#/review?task=2026-12-04%230)
-- [ ] 🇯🇵 Ôn lại 初級 bài 10: 66 từ + 8 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=10&task=2026-12-04%231)
+- [ ] 🇯🇵 Ôn lại 初級 bài 10: 66 từ + 10 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=10&task=2026-12-04%231)
 - [ ] 🇯🇵 Ôn lại 初級 bài 11: 48 từ + 10 kanji — xem lại danh sách rồi làm trắc nghiệm _(15′)_ [🔗](on-tu.html#/learn?d=S&l=11&task=2026-12-04%232)
 - [ ] 🇯🇵 Ôn ngữ pháp N5 (file 01): #53 ～と 思います; #54 ～と 言いました; #55 Mệnh đề bổ nghĩa danh từ; #56 ～とき; #57 ～でしょう; #58 Adj + なります; #59 Vた あとで; #60 ～が、～; #61 Nに します; #62 ～だけ; #63 ～しか～ない; #64 Từ nghi vấn + か／も; #65 ～ね／～よ — che nghĩa, tự nói nghĩa + đặt 1 câu _(30′)_
 - [ ] 🇯🇵 NHK World 'Easy Japanese' 1 bài (nghe 2 lần, nhại theo) _(15′)_
@@ -102,10 +101,9 @@
 - [ ] 🇬🇧 Ngữ pháp Part 5: Giới từ thời gian / nơi chốn — in/on/at; by (hạn chót) vs until (kéo dài); within, during, throughout. Làm 15 câu đúng chủ điểm _(30′)_
 - [ ] 🇬🇧 Nghe Part 1: 6–10 tranh + chép chính tả 10 phút các câu sai _(30′)_
 
-### Thứ 4 09/12/2026  ·  ~205 phút
+### Thứ 4 09/12/2026  ·  ~185 phút
 - [ ] 🇯🇵 Ôn tập SRS (web ôn từ): làm hết thẻ đến hạn _(15′)_ [🔗](on-tu.html#/review?task=2026-12-09%230)
 - [ ] 🇯🇵 Từ mới 初級 bài 13 (1/2): từ 1–19 (19 từ) — tự học theo cách của bạn rồi làm trắc nghiệm _(30′)_ [🔗](on-tu.html#/learn?d=S&l=13&t=w&a=0&b=19&task=2026-12-09%231)
-- [ ] 🇯🇵 Kanji 初級 bài 13 (1/2): 1 chữ (Hán Việt, On/Kun, từ ghép) — viết tay + trắc nghiệm _(20′)_ [🔗](on-tu.html#/learn?d=S&l=13&t=k&a=0&b=1&task=2026-12-09%232)
 - [ ] 🇯🇵 Ngữ pháp 初級 bài 13: đọc phần 文法 trong sách đỏ, làm bài tập cuối bài _(35′)_
 - [ ] 🇯🇵 NHK World 'Easy Japanese' 1 bài (nghe 2 lần, nhại theo) _(15′)_
 - [ ] 🇯🇵 Đọc 1 truyện Tadoku level 0–1 (tadoku.org, miễn phí) _(15′)_
@@ -113,10 +111,9 @@
 - [ ] 🇬🇧 Ngữ pháp Part 5: Liên từ vs giới từ — although/because + mệnh đề; despite/because of + N/V-ing. Làm 15 câu đúng chủ điểm _(30′)_
 - [ ] 🇬🇧 Nghe Part 1: 6–10 tranh + chép chính tả 10 phút các câu sai _(30′)_
 
-### Thứ 5 10/12/2026  ·  ~200 phút
+### Thứ 5 10/12/2026  ·  ~180 phút
 - [ ] 🇯🇵 Ôn tập SRS (web ôn từ): làm hết thẻ đến hạn _(15′)_ [🔗](on-tu.html#/review?task=2026-12-10%230)
 - [ ] 🇯🇵 Từ mới 初級 bài 13 (2/2): từ 20–38 (19 từ) — tự học theo cách của bạn rồi làm trắc nghiệm _(30′)_ [🔗](on-tu.html#/learn?d=S&l=13&t=w&a=19&b=38&task=2026-12-10%231)
-- [ ] 🇯🇵 Kanji 初級 bài 13 (2/2): 1 chữ (Hán Việt, On/Kun, từ ghép) — viết tay + trắc nghiệm _(20′)_ [🔗](on-tu.html#/learn?d=S&l=13&t=k&a=1&b=2&task=2026-12-10%232)
 - [ ] 🇯🇵 Luyện 初級 bài 13: hội thoại (会話) + bài tập trong sách, nghe CD bài 13 _(30′)_
 - [ ] 🇯🇵 NHK World 'Easy Japanese' 1 bài (nghe 2 lần, nhại theo) _(15′)_
 - [ ] 🇯🇵 Đọc 1 truyện Tadoku level 0–1 (tadoku.org, miễn phí) _(15′)_

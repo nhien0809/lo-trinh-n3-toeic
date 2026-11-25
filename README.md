@@ -18,7 +18,7 @@
 ## Tiếng Nhật theo giáo trình trường (FLM)
 | Tuần | Nội dung | Môn tương ứng |
 |---|---|---|
-| 1 | Ôn lại sách đỏ 初級 bài 1–11 (trắc nghiệm cả bài) + 12 kanji N5 còn thiếu + ôn ngữ pháp N5 | JPD113–133 (đã học) |
+| 1 | Ôn lại sách đỏ 初級 bài 1–11 (trắc nghiệm cả bài, kanji theo slide JPD113–133 + 30 kanji N5 bổ sung) + ôn ngữ pháp N5 | JPD113–133 (đã học) |
 | 2–3 | Sách đỏ bài 12–15: 202 từ mới | — |
 | 4–11 | Sách vàng 初中級 bài 1–15: 934 từ + 162 kanji, ngữ pháp theo bảng buổi học FLM | JPD216, JPD226 |
 | 12–16 | Sách xanh 中級 bài 1–5: 249 từ + 82 kanji, ngữ pháp từ slide 文法説明 + 100 mẫu N3 tổng hợp | JPD316 |

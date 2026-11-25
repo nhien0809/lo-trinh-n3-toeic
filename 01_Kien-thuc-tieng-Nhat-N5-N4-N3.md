@@ -43,7 +43,7 @@ Từ vựng và kanji đi **theo đúng giáo trình できる日本語 mà trư
 
 1. **Web ôn từ `on-tu.html`** (thay cho Anki): bấm nút **Học ▸** ở task trong `tracker.html` để mở đúng đoạn từ của ngày. Tự học danh sách theo cách của bạn, rồi làm **trắc nghiệm 4 đáp án** (nghĩa ↔ từ, cách đọc, Hán Việt/On/Kun của kanji). Đạt ≥80% thì task tự được tick.
 2. **Lặp lại ngắt quãng** (thuật toán SM-2 như Anki): câu sai ở lần đầu → hỏi lại ngay trong phiên và đến hạn lại sau 10 phút; đúng → hẹn 1 ngày, rồi 3 ngày, rồi nhân với hệ số dễ (≈2,5). Trả lời nhanh (<4 giây) giãn khoảng cách nhiều hơn, trả lời chậm (>12 giây) giãn ít hơn. Mỗi ngày bấm **Ôn ▸** để làm hết thẻ đến hạn **trước** khi học từ mới.
-3. **Kanji N5 bổ sung**: sách đỏ không dạy các chữ số 二三四五六七八九十百千万 dưới dạng kanji trong danh sách từ. Web có thêm 12 chữ này (mục "N5 bổ sung") cho đủ 103 kanji N5.
+3. **Kanji theo slide trường + N5 bổ sung**: kanji sách đỏ lấy đúng theo slide "Kanji bài N" của JPD113–133 (khoảng 10 chữ/bài). 30 chữ N5 mà slide chưa dạy được thêm vào bài đầu tiên chữ đó xuất hiện (thẻ có nhãn "N5 bổ sung"). **Từ có kanji chưa học thì web viết bằng kana**; học tới bài có chữ đó thì từ mới dùng kanji.
 4. Mỗi chữ học: **âm Hán Việt + âm On + âm Kun + 2 từ ghép thông dụng**. Viết tay 3 lần. Đừng học chữ đứng một mình.
 5. Tra từ: **Mazii** (Nhật–Việt), **Jisho.org** (Nhật–Anh). Nghĩa tiếng Việt của sách vàng và sách xanh trong web là bản dịch bổ sung; nếu thấy khác với sách/thầy cô thì theo sách.
 

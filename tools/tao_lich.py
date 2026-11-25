@@ -106,7 +106,7 @@ def jp_weekday(d, j, p):
             c = COUNT[("S", l)]
             tasks.append(T("JP", f"Ôn lại 初級 bài {l}: {c['w']} từ" + (f" + {c['k']} kanji" if c['k'] else "") +
                            " — xem lại danh sách rồi làm trắc nghiệm", 15, link(d="S", l=l)))
-        if j["extra0"]:
+        if j["extra0"] and COUNT[("S", 0)]["k"]:
             tasks.append(T("JP", f"Kanji N5 bổ sung: {COUNT[('S', 0)]['k']} chữ số đếm chưa có trong sách đỏ (二三四…百千万) — học + trắc nghiệm",
                            15, link(d="S", l=0)))
         gl = "; ".join(f"#{i} {g[0]}" for i, g in j["n5"])
